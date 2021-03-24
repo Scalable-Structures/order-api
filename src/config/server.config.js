@@ -1,7 +1,8 @@
 'use strict';
 
 const Hapi = require('@hapi/hapi');
-const Env = require('./env.config')
+const HapiRouter = require('hapi-router');
+const Env = require('./env.config');
 
 class Server {
   constructor() {
@@ -11,7 +12,23 @@ class Server {
     });
   }
 
+
+  async plugins() {
+    try {
+      await this._server.register({
+        plugin: HapiRouter,
+        options: {
+          routes: 'src/api/**/*.routes.js'
+        }
+      });
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  }
+
   async start() {
+    await this.plugins();
     await this._server.start();
     console.log('Server running on %s', this._server.info.uri);
 
