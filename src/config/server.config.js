@@ -22,4 +22,5 @@ class Server {
   }
 }
 
-module.exports = Server;
+exports.Server = Server;
+module.exports = new Server;
