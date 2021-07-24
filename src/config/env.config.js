@@ -3,7 +3,6 @@ require('dotenv').config();
 const {
   VERSION = '1.0.0',
   NODE_ENV = 'development',
-  HOST = 'localhost',
   PORT = '3333',
 
   DB_CLIENT_DEV,
@@ -21,13 +20,17 @@ const {
   DB_PORT,
   DB_USER,
   DB_PASSWORD,
-  DB_DATABASE
+  DB_DATABASE,
+
+  HOST_QUEUE = 'localhost',
+  ENABLED_QUEUE = false,
+  EXCHANGE_NAME_QUEUE = 'order-exchange',
+  NAME_QUEUE = 'order-queue'
 } = process.env;
 
 module.exports = {
   VERSION,
   NODE_ENV,
-  HOST,
   PORT,
   
   DB_CLIENT_DEV,
@@ -45,5 +48,10 @@ module.exports = {
   DB_PORT,
   DB_USER,
   DB_PASSWORD,
-  DB_DATABASE
+  DB_DATABASE,
+
+  HOST_QUEUE,
+  ENABLED_QUEUE: JSON.parse(ENABLED_QUEUE),
+  EXCHANGE_NAME_QUEUE,
+  NAME_QUEUE
 };
