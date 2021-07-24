@@ -5,8 +5,8 @@ exports.up = function(knex) {
       table.increments();
       table.integer('customer_id').unsigned().notNullable();
       table.datetime('date').notNullable();
-      table.integer('status').unsigned().notNullable();
-      table.decimal('value', 11, 2).notNullable();
+      table.string('status').defaultTo('PENDING_PAYMENT').notNullable();
+      table.decimal('value', 11, 2).defaultTo(0).notNullable();
 
       table.foreign('customer_id').references('id').inTable('customers');
     });

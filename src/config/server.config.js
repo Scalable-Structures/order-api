@@ -7,8 +7,7 @@ const Env = require('./env.config');
 class Server {
   constructor() {
     this._server = Hapi.server({
-        port: Env.PORT,
-        host: Env.HOST
+        port: Env.PORT
     });
   }
 

@@ -1,5 +1,8 @@
 #node
 node_modules
 
+#settings
+.env
+
 #others
 *.bak

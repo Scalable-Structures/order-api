@@ -8,7 +8,6 @@ exports.seed = function(knex) {
         const customerNumber = index + 1;
 
         customers[index] = {
-          id: customerNumber, 
           name: `Fulano ${customerNumber}`, 
           email: `fulano${customerNumber}@gmail.com`, 
           password: '123456'
