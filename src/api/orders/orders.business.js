@@ -49,7 +49,7 @@ class OrderBusiness {
     const _payload = this._serializePayload(payload);
 
     if (Env.ENABLED_QUEUE) {
-      await this.orderQueue.create(_payload);
+      this.orderQueue.create(_payload);
 
       return {
         message: 'Order is being processed',

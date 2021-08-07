@@ -15,7 +15,8 @@ class OrderRepository {
     const orders = await this.qb
       .select()
       .from(this.tableName)
-      .where(params);
+      .where(params)
+      .limit(5);
 
     return Promise.all(orders.map(async (order) => {
       const items = await this.orderItemRepo.all(order.id);
